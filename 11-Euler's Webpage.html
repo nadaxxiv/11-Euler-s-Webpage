@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11-Euler's Webpage</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #111;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease; /* Add transition for smoother hover effect */
+        }
+        nav a:hover {
+            background-color: #333; /* Change background color on hover */
+        }
+        nav a.active {
+            background-color: #333;
+        }
+        section {
+            display: none; /* Hide all sections by default */
+            padding: 50px 20px;
+            text-align: center;
+        }
+        section.active {
+            display: block; /* Show the active section */
+        }
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        section p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to 11-Euler's Webpage</h1>
+    </header>
+    <nav>
+        <a href="#" class="active" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('projects')">Projects</a>
+        <a href="#" onclick="showSection('activities')">Activities</a>
+        <a href="#" onclick="showSection('about')">About</a>
+    </nav>
+    <section id="home" class="active">
+        <h2>Home</h2>
+        <p>Welcome to the homepage of 11-Euler's Webpage. This is where you can find some introductory information.</p>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>Here you can find information about our ongoing and completed projects.</p>
+    </section>
+    <section id="activities">
+        <h2>Activities</h2>
+        <p>Explore our various activities and events.</p>
+    </section>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Learn more about 11-Euler's Webpage and our team.</p>
+    </section>
+    <footer>
+        <p>&copy; 2024 11-Euler's Webpage. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(function(section) {
+                section.classList.remove('active');
+            });
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+            // Update active state in the navigation
+            document.querySelectorAll('nav a').forEach(function(link) {
+                link.classList.remove('active');
+            });
+            document.querySelector('nav a[href="#' + sectionId + '"]').classList.add('active');
+        }
+    </script>
+</body>
+</html>
